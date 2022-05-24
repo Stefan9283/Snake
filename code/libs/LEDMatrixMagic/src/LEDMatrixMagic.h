@@ -31,7 +31,6 @@ class LEDMatrixMagic {
         void shutdown(int addr, bool b);
         void set_scan_limit(int addr, int limit);
         void set_led(int addr, int row, int column, boolean state);
-        void set_row(int addr, int row, uint8_t state);
         // void set_message(char *message);
         void spi_transfer(uint8_t address, uint8_t opcode, uint8_t data);
 };

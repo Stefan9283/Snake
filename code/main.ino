@@ -39,13 +39,14 @@ void setup() {
   pinMode(D, INPUT_PULLUP);
 
   for (int d = 0; d < m.matrix_count(); d++) {
-    m.shutdown(d, false); // Bring the Max out of Shutdown Mode and into Normal Operation Mode
-    m.set_intensity(d, 1);
-    m.clear(d); // Clear the display
+    m.shutdown(d, false); // bring the Max out of Shutdown Mode and into Normal Operation Mode
+    m.set_intensity(d, 1); // set intensity to the lowest level
+    m.clear(d); // clear the display
   }
+  
   g = Game::get_game(&m);
 
-  // initialize timer1 
+  // timer1 init 
   noInterrupts();           // disable all interrupts
   TCCR1A = 0;
   TCCR1B = 0;
@@ -60,12 +61,7 @@ void setup() {
 void loop() {
   g->get_input(get_input());
 
-  // for (int i = 0; i < 4; i++)
-  //   for (int j = 0; j < 8; j++)
-  //     for (int k = 0; k < 8; k++)
-  //       m.set_led(i, j, k, 1);        
-
-  // read button input here
+  // read button input here - for debugging purposes
   // if (Serial.available() > 0) {
   //   // read the incoming byte:
   //   char c = Serial.read();

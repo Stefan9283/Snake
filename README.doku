@@ -43,6 +43,8 @@ O schemă bloc cu toate modulele proiectului vostru, atât software cât şi har
 Exemplu de schemă bloc: http://www.robs-projects.com/mp3proj/newplayer.html
 </note>
 </hidden>
+
+
 ===== Hardware Design =====
 ^ Denumire Piesa        																				                                                                                                    ^ Cantitate ^
 | Arduino Uno       																			   			                                                                                              |  1  	    |
@@ -52,12 +54,10 @@ Exemplu de schemă bloc: http://www.robs-projects.com/mp3proj/newplayer.html
 | Fire Tata-Tata 	  																			                                                                                                      |  ?  	    |
 | Rezistente 100 KΩ																				                                                                                                      |  5  	    |
 
-
-
 {{:pm:prj2022:fstancu:schema_breadboard_snake.png?700|}}
 {{:pm:prj2022:fstancu:schema_electrica_snake.png?700|}}
 
-
+wikidoku
 <hidden>
 :!: TODO
 <note tip>
@@ -71,7 +71,29 @@ Aici puneţi tot ce ţine de hardware design:
 
 
 ===== Software Design =====
-:!: TODO
+
+Medii de dezvoltare:
+
+Arduino IDE, VS Code
+Fritzing - Schema electrica
+Creately - Schema bloc
+
+Se folosesc urmatoarele 2 librarii:
+  * LEDMatrixMagic 
+    * o versiune stripped down a librariei LedControl
+    * este folosita pentru interfatarea cu grid-ul de matrici led prin protocolul SPI
+  * Snake (librarie proprie) contine implementarea claselor: 
+      * Game  - o entitate care se ocupa de interpretarea input-ului, logica jocului de snake si rendare
+      * Snake - o lista + o functie de inaintare pe directia "direction"
+      * List  - implementarea unei liste simplu inlantuite
+
+Citirea si interpretarea inputului se face in functia loop().
+Timer-ul 1 se ocupa cu verificarea restrictiilor jocului si automat de rendarea pe ecran la fiecare secunda. Procesului de rendare a fost optimizat prin pastrarea tuturor LED-urilor aprinse. Astfel singurele exceptii cand interactiunea cu interfata LEDMatrixMagic este necesara sunt: 
+  * un nou item este generat
+  * la fiecare miscare a sarpelui
+    * casuta in care se afla coada sarpelui se stinge
+    * capul inainteaza intr-o noua casuta (exceptie cand casuta contine un item)
+
 <note tip>
 Descrierea codului aplicaţiei (firmware):
   * mediu de dezvoltare (if any) (e.g. AVR Studio, CodeVisionAVR)
@@ -79,6 +101,8 @@ Descrierea codului aplicaţiei (firmware):
   * algoritmi şi structuri pe care plănuiţi să le implementaţi
   * (etapa 3) surse şi funcţii implementate
 </note>
+
+
 ===== Rezultate Obţinute =====
 :!: TODO
 <note tip>

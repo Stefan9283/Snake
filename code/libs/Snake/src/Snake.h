@@ -13,7 +13,6 @@ typedef struct point {
 } point_t;
 
 typedef struct node node_t;
-typedef struct snake snake_t;
 
 class List {
     node_t *start = nullptr;
@@ -43,11 +42,6 @@ typedef struct node {
     point_t p;
     struct node* next;
 } node_t;
-
-typedef struct snake {
-    List *body;
-    int direction;
-} snake_t;
 
 
 class Snake {
@@ -87,7 +81,6 @@ public:
     void set_renderer(LEDMatrixMagic *m);
     void get_input(char c);
     void resetGame();
-    void game_over_print();
 };
 
 #endif

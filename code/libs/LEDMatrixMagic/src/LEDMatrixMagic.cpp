@@ -32,8 +32,6 @@ LEDMatrixMagic::LEDMatrixMagic(int dataPin, int clkPin, int csPin, int numDevice
     pinMode(CLK, OUTPUT);
     pinMode(CS,  OUTPUT);
     digitalWrite(CS, HIGH);
-    // SPI.setBitOrder(MSBFIRST);
-    // SPI.begin();
     for (int i = 0; i < 8; i++)
         memset(status[i], 0, 8);
     for(int i = 0; i < maxDevices; i++) {
@@ -46,7 +44,6 @@ LEDMatrixMagic::LEDMatrixMagic(int dataPin, int clkPin, int csPin, int numDevice
         //we go into shutdown-mode on startup
         shutdown(i, true);
     }
-
 }
 
 int LEDMatrixMagic::matrix_count() {
@@ -106,42 +103,6 @@ void LEDMatrixMagic::set_led(int addr, int row, int column, boolean state) {
     }
     spi_transfer(addr, row + 1,status[addr][row]);
 }
-void LEDMatrixMagic::set_row(int addr, int row, uint8_t state) {
-    status[addr][row] = state;
-    spi_transfer(addr, row + 1,status[addr][row]);
-}
-// void LEDMatrixMagic::set_message(char *message) {
-//     this->current_left_col = 0;
-    
-//     Serial.print(message);
-//     Serial.print(' ');
-//     Serial.println(strlen(message));
-    
-//     for (int i = 0; i < 8; i++) 
-//         message_buffer[i] = calloc(8 * strlen(message), sizeof(char));
-
-//     for (int l = 0; l < strlen(message); l++) {
-//         for (int i = 0; i < 8; i++) { 
-//             byte row = font[message[l] - 32];
-//             for (int j = 7; j >= 0; j++) {
-//                 message_buffer[i][j + l * 8] &= (row & 1);
-//                 row = row >> 1; 
-//             }
-//         }
-//     }
-
-//     Serial.println(message);
-//     for (int i = 0; i < 8; i++) { 
-//         for (int j = 0; j < strlen(message) * 8; j++) {
-//             if (message_buffer[i][j])
-//                 Serial.print("#");
-//             else 
-//                 Serial.print(' ');
-//         }
-//         Serial.print('\n');
-//     }
-
-// }
 
 void LEDMatrixMagic::spi_transfer(uint8_t addr, uint8_t opcode, uint8_t data) {
     //Create an array with the data to shift out
@@ -158,7 +119,6 @@ void LEDMatrixMagic::spi_transfer(uint8_t addr, uint8_t opcode, uint8_t data) {
     //Now shift out the data 
     int maxbytes = maxDevices * 2;
     for(int i = maxbytes - 1; i >= 0; i--)
-        // SPI.transfer(spidata[i]);
         shiftOut(DIN, CLK, MSBFIRST, spidata[i]);
     //latch the data onto the display
     digitalWrite(CS, HIGH);
