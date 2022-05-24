@@ -1,0 +1,103 @@
+====== Snake ======
+<note>
+Autor: Toma Ștefan-Mădălin \\ Grupa: 333CC
+</note>
+
+===== Introducere =====
+
+Proiectul constă intr-o implementare a clasicului joc de [[https://www.youtube.com/watch?v=kZr8sR9Gwag&ab_channel=OmarGhatasheh|"Snake"]]. \\
+Jucătorul controlează un punct pe un plan bidimensional. \\
+Pe măsură ce înaintează, lasă o urmă, asemănătoare cu un șarpe în mișcare.\\
+Jucătorul pierde atunci când șarpele lovește granița ecranului sau pe sine.\\
+Jucătorul încearcă să mănânce iteme lovindu-le cu capul șarpelui. \\
+Fiecare element consumat crește lungimea șarpelui, astfel încât evitarea coliziunii cu sine devine progresiv mai dificilă.\\
+
+<hidden>
+<note tip>
+Prezentarea pe scurt a proiectului vostru:
+  * ce face
+  * care este scopul lui
+  * care a fost ideea de la care aţi pornit
+  * de ce credeţi că este util pentru alţii şi pentru voi
+</note>
+</hidden>
+===== Descriere generală =====
+
+=== Functionalitati ===
+
+User-ul dispune de 4 butoane prin intermediul carora poate sa controleze directia curenta a sarpelui.
+
+La coliziunea sarpelui cu un item lungimea ii va creste cu o unitate.
+
+La sfarsitul oricarui joc se va afisa score-ul final al jucatorului si se va astepta un input pentru a incepe un nou joc.
+
+
+=== Schema Bloc ===
+{{:pm:prj2022:fstancu:schema_bloc_snake.png?700|}}
+
+<hidden>
+:!: TODO
+
+<note tip>
+O schemă bloc cu toate modulele proiectului vostru, atât software cât şi hardware însoţită de o descriere a acestora precum şi a modului în care interacţionează.
+Exemplu de schemă bloc: http://www.robs-projects.com/mp3proj/newplayer.html
+</note>
+</hidden>
+===== Hardware Design =====
+^ Denumire Piesa        																				                                                                                                    ^ Cantitate ^
+| Arduino Uno       																			   			                                                                                              |  1  	    |
+| Butoane        																				                                                                                                        |  4  	    |
+| [[https://www.optimusdigital.ro/ro/optoelectronice-matrice-de-led-uri/2395-modul-cu-matrice-led-max7219-versiunea-smd.html?search_query=Modul+cu+Matrice+LED+MAX7219+%28versiunea+SMD%29&results=1|Matrice LED MAX7219]]      					                    |  4        |
+| Fire Mama-Tata 	  																			                                                                                                      |  ?  	    |
+| Fire Tata-Tata 	  																			                                                                                                      |  ?  	    |
+| Rezistente 100 KΩ																				                                                                                                      |  5  	    |
+
+
+
+{{:pm:prj2022:fstancu:schema_breadboard_snake.png?700|}}
+{{:pm:prj2022:fstancu:schema_electrica_snake.png?700|}}
+
+
+<hidden>
+:!: TODO
+<note tip>
+Aici puneţi tot ce ţine de hardware design:
+  * listă de piese
+  * scheme electrice (se pot lua şi de pe Internet şi din datasheet-uri, \\ e.g. http://www.captain.at/electronic-atmega16-mmc-schematic.png)
+  * diagrame de semnal
+  * rezultatele simulării
+</note>
+</hidden>
+
+
+===== Software Design =====
+:!: TODO
+<note tip>
+Descrierea codului aplicaţiei (firmware):
+  * mediu de dezvoltare (if any) (e.g. AVR Studio, CodeVisionAVR)
+  * librării şi surse 3rd-party (e.g. Procyon AVRlib)
+  * algoritmi şi structuri pe care plănuiţi să le implementaţi
+  * (etapa 3) surse şi funcţii implementate
+</note>
+===== Rezultate Obţinute =====
+:!: TODO
+<note tip>
+Care au fost rezultatele obţinute în urma realizării proiectului vostru.
+</note>
+===== Concluzii =====
+:!: TODO
+<note tip>
+</note>
+
+===== Download =====
+:!: TODO
+<note warning>
+O arhivă (sau mai multe dacă este cazul) cu fişierele obţinute în urma realizării proiectului: surse, scheme, etc. Un fişier README, un ChangeLog, un script de compilare şi copiere automată pe uC crează întotdeauna o impresie bună ;-).
+Fişierele se încarcă pe wiki folosind facilitatea Add Images or other files. Namespace-ul în care se încarcă fişierele este de tipul :pm:prj20??:c? sau :pm:prj20??:c?:nume_student (dacă este cazul). Exemplu: Dumitru Alin, 331CC → :pm:prj2009:cc:dumitru_alin.
+</note>
+
+===== Bibliografie/Resurse =====
+:!: TODO
+<note>
+Listă cu documente, datasheet-uri, resurse Internet folosite, eventual grupate pe Resurse Software şi Resurse Hardware.
+</note>
